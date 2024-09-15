@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Object Relationships", "0. Object Relationships", "{D9383882-AC5A-493A-BC0E-370EC5790A92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.ObjectRelationships", "src\DesignPatterns.ObjectRelationships\DesignPatterns.ObjectRelationships.csproj", "{0B8F2964-42E1-4C83-86A5-4C76D87A4C61}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B8F2964-42E1-4C83-86A5-4C76D87A4C61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B8F2964-42E1-4C83-86A5-4C76D87A4C61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B8F2964-42E1-4C83-86A5-4C76D87A4C61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B8F2964-42E1-4C83-86A5-4C76D87A4C61}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0B8F2964-42E1-4C83-86A5-4C76D87A4C61} = {D9383882-AC5A-493A-BC0E-370EC5790A92}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6C9CD54-12DF-4685-90E3-FC46506C5C9E}
+	EndGlobalSection
+EndGlobal
