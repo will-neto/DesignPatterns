@@ -116,10 +116,6 @@ namespace DesignPatterns.ObjectRelationships
                 A Casa (A) não depende de um quarto (B) para existir (no contexto da programação)
                 O Quarto (B) depende de uma casa (A) para existir
                 A destruição de um objeto casa (A), implica na destruição do objeto quarto (B). Desta forma, objeto A gerencia o ciclo de vida de B
-
-
-                O CÓDIGO DE UMA AGREGAÇÃO É BEM SEMELHANTE A UMA ASSOCIAÇÃO
-                O QUE DIFERE É O CONCEITO DE "TODO/PARTE"
              */
         }
 
@@ -156,6 +152,8 @@ namespace DesignPatterns.ObjectRelationships
                 A Piscina (B) não depende de uma casa (A) para existir
                 A destruição de um objeto casa (A), NÃO implica na destruição do objeto piscina (B). Desta forma, objeto A NÃO gerencia o ciclo de vida de B
 
+                O CÓDIGO DE UMA AGREGAÇÃO É BEM SEMELHANTE A UMA ASSOCIAÇÃO
+                O QUE DIFERE É O CONCEITO DE "TODO/PARTE"
              */
         }
 
