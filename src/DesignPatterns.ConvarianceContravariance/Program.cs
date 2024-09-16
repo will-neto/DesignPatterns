@@ -43,9 +43,18 @@ namespace DesignPatterns.ConvarianceContravariance
                 Desta forma, é possível passar um tipo mais específico (subclasse)
              
              */
-            IProcessadorSuco<Fruta> processador = new ProcessadorSuco<Laranja>(new Laranja());
-            IProcessadorSuco<Fruta> processador2 = new ProcessadorSuco<Maca>(new Maca());
-            IProcessadorSuco<Fruta> processador3 = new ProcessadorSuco<Fruta>(new Fruta());
+
+            var laranja = new Laranja();
+            var maca = new Maca();
+            var fruta = new Fruta();
+
+            Console.WriteLine("laranja foi processada? = " + laranja.Processada);
+            Console.WriteLine("maca foi processada? = " + maca.Processada);
+            Console.WriteLine("fruta foi processada? = " + fruta.Processada);
+
+            IProcessadorSuco<Fruta> processador = new ProcessadorSuco<Laranja>(laranja);
+            IProcessadorSuco<Fruta> processador2 = new ProcessadorSuco<Maca>(maca);
+            IProcessadorSuco<Fruta> processador3 = new ProcessadorSuco<Fruta>(fruta);
 
             //Erro de compilação devido a classe "Alimento" ser um tipo mais geral/generico/abstrato (in)
             //IProcessadorSuco<Fruta> processador4 = new ProcessadorSuco<Alimento>(new Alimento());
@@ -54,6 +63,9 @@ namespace DesignPatterns.ConvarianceContravariance
             processador2.FazerSuco();
             processador3.FazerSuco();
 
+            Console.WriteLine("laranja foi processada? = " + laranja.Processada);
+            Console.WriteLine("maca foi processada? = " + maca.Processada);
+            Console.WriteLine("fruta foi processada? = " + fruta.Processada);
         }
 
         static void Contravariancia()

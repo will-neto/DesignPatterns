@@ -15,12 +15,18 @@ namespace DesignPatterns.ConvarianceContravariance.Convariancia
             _item = item;
         }
 
-        public void FazerSuco()
+        public T FazerSuco()
         {
-            if (_item != null)
+            if (_item != null && typeof(Fruta).IsAssignableFrom(_item.GetType()))
             {
+                var fruta = _item as Fruta;
+
+                fruta.Processada = true;
+
                 Console.WriteLine("Fazendo suco de: " + _item.GetType().Name);
             }
+
+            return _item;
         }
     }
 }

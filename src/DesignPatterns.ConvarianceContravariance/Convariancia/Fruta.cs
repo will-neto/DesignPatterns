@@ -8,5 +8,6 @@ namespace DesignPatterns.ConvarianceContravariance.Convariancia
 {
     internal class Fruta : Alimento
     {
+        public bool Processada { get; set; }
     }
 }
