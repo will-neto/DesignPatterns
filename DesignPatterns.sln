@@ -5,7 +5,13 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Object Relationships", "0. Object Relationships", "{D9383882-AC5A-493A-BC0E-370EC5790A92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.ObjectRelationships", "src\DesignPatterns.ObjectRelationships\DesignPatterns.ObjectRelationships.csproj", "{0B8F2964-42E1-4C83-86A5-4C76D87A4C61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatterns.ObjectRelationships", "src\DesignPatterns.ObjectRelationships\DesignPatterns.ObjectRelationships.csproj", "{0B8F2964-42E1-4C83-86A5-4C76D87A4C61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. SOLID", "1. SOLID", "{A390D27E-388C-4D08-B4D0-B2EFDDF12D45}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Covariance and Contravariance", "1. Covariance and Contravariance", "{C5210CEC-5A1E-4C48-8522-9D4AF6BE5FA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.ConvarianceContravariance", "src\DesignPatterns.ConvarianceContravariance\DesignPatterns.ConvarianceContravariance.csproj", "{524B1EF1-0CE7-4BCA-BAF9-837E0E33D224}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +23,17 @@ Global
 		{0B8F2964-42E1-4C83-86A5-4C76D87A4C61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B8F2964-42E1-4C83-86A5-4C76D87A4C61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B8F2964-42E1-4C83-86A5-4C76D87A4C61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{524B1EF1-0CE7-4BCA-BAF9-837E0E33D224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{524B1EF1-0CE7-4BCA-BAF9-837E0E33D224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{524B1EF1-0CE7-4BCA-BAF9-837E0E33D224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{524B1EF1-0CE7-4BCA-BAF9-837E0E33D224}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0B8F2964-42E1-4C83-86A5-4C76D87A4C61} = {D9383882-AC5A-493A-BC0E-370EC5790A92}
+		{524B1EF1-0CE7-4BCA-BAF9-837E0E33D224} = {C5210CEC-5A1E-4C48-8522-9D4AF6BE5FA1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6C9CD54-12DF-4685-90E3-FC46506C5C9E}
