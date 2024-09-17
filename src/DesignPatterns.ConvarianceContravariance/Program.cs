@@ -180,6 +180,7 @@
             // Pois os métodos contravariantes de ConsumidorContravariante<Derivada> podem utilizar propriedades/métodos herdados da classe base
             IConsumidorContravariante<Derivada> r = new ConsumidorContravariante<Base>();
 
+            // Inválido: Não é possível devido chamadas de métodos de ConsumidorContravariante<Derivada> poder possuir campos não visiveis ao tipo Base
             // IConsumidorContravariante<Base> s = new ConsumidorContravariante<Derivada>();
 
             r.Consumir(new Derivada());
