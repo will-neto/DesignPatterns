@@ -8,8 +8,6 @@ namespace DesignPatterns.ConvarianceContravariance
 {
     internal class Base
     {
-        public int PropriedadeA { get; set; }
-
         public void Mensagem()
         {
             Console.WriteLine("Mensagem disparada através do objeto de classe: " + this.GetType().Name);

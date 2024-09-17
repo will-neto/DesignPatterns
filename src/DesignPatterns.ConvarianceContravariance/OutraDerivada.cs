@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns.ConvarianceContravariance
 {
-    internal class Derivada : Base
+    internal class OutraDerivada : Base
     {
     }
 }
