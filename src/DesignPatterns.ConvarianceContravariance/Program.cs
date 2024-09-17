@@ -1,4 +1,5 @@
 ﻿
+using DesignPatterns.ConvarianceContravariance.Contravariancia;
 using DesignPatterns.ConvarianceContravariance.Convariancia;
 
 namespace DesignPatterns.ConvarianceContravariance
@@ -36,45 +37,12 @@ namespace DesignPatterns.ConvarianceContravariance
 
         static void Covariancia()
         {
-            // Permite o uso de um tipo mais específico (out - igual ao tipo ou subclasse) no lugar de um tipo de superclasse
-
-            /*
-                Em interfaces, o uso da palavra "out" é utilizado na interface base
-                Desta forma, é possível passar um tipo mais específico (subclasse)
-             
-             */
-
-            var laranja = new Laranja();
-            var maca = new Maca();
-            var fruta = new Fruta();
-
-            Console.WriteLine("laranja foi processada? = " + laranja.Processada);
-            Console.WriteLine("maca foi processada? = " + maca.Processada);
-            Console.WriteLine("fruta foi processada? = " + fruta.Processada);
-
-            IProcessadorSuco<Fruta> processador = new ProcessadorSuco<Laranja>(laranja);
-            IProcessadorSuco<Fruta> processador2 = new ProcessadorSuco<Maca>(maca);
-            IProcessadorSuco<Fruta> processador3 = new ProcessadorSuco<Fruta>(fruta);
-
-            //Erro de compilação devido a classe "Alimento" ser um tipo mais geral/generico/abstrato (in)
-            //IProcessadorSuco<Fruta> processador4 = new ProcessadorSuco<Alimento>(new Alimento());
-
-            processador.FazerSuco();
-            processador2.FazerSuco();
-            processador3.FazerSuco();
-
-            Console.WriteLine("laranja foi processada? = " + laranja.Processada);
-            Console.WriteLine("maca foi processada? = " + maca.Processada);
-            Console.WriteLine("fruta foi processada? = " + fruta.Processada);
+          
         }
 
         static void Contravariancia()
         {
-            // Permite o uso de um tipo mais geral/abstrato no lugar de um tipo de subclasse
-
-            /*
-                
-             */
+         
 
         }
 
