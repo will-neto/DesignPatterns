@@ -26,19 +26,30 @@
 
             // Exemplo de uso com inicialização através de Lazy<object>
 
-            SingletonWithLazy instanciaUnica3 = SingletonWithLazy.ObterInstancia();
+            SingletonWithLazyClass instanciaUnica3 = SingletonWithLazyClass.ObterInstancia();
 
             Console.WriteLine("Variável \"instanciaUnica3\" com HashCode: " + instanciaUnica3.GetHashCode());
 
-            SingletonWithLazy instanciaUnica4 = SingletonWithLazy.ObterInstancia();
+            SingletonWithLazyClass instanciaUnica4 = SingletonWithLazyClass.ObterInstancia();
 
             Console.WriteLine("Variável \"instanciaUnica4\" com HashCode: " + instanciaUnica4.GetHashCode());
+
+            // Exemplo de uso com inicialização através de Eager
+
+            SingletonEager instanciaUnica5 = SingletonEager.Instancia;
+
+            Console.WriteLine("Variável \"instanciaUnica5\" com HashCode: " + instanciaUnica5.GetHashCode());
+
+            SingletonEager instanciaUnica6 = SingletonEager.Instancia;
+
+            Console.WriteLine("Variável \"instanciaUnica6\" com HashCode: " + instanciaUnica6.GetHashCode());
 
 
         }
     }
 
     // Classe responsável pela inicialização
+    // Usando o conceito de Lazy Initialization - inicialização quando se é realmente necessário, ou seja, quando se é chamado
     internal class Singleton
     {
         private static Singleton _instancia = null!;
@@ -72,17 +83,27 @@
 
 
     // Exemplo usando classe nativa do .NET com controle de inicialização preguiçosa e garantida (thread-safe)
-    internal class SingletonWithLazy
+    // Usando o conceito de Lazy Initialization - inicialização quando se é realmente necessário, ou seja, quando se é chamado
+    internal class SingletonWithLazyClass
     {
         // 
-        private static readonly Lazy<SingletonWithLazy> _instancia = new Lazy<SingletonWithLazy>(() => new SingletonWithLazy());
+        private static readonly Lazy<SingletonWithLazyClass> _instancia = new Lazy<SingletonWithLazyClass>(() => new SingletonWithLazyClass());
 
-        private SingletonWithLazy() { }
+        private SingletonWithLazyClass() { }
 
-        public static SingletonWithLazy ObterInstancia()
+        public static SingletonWithLazyClass ObterInstancia()
         {
             return _instancia.Value;
         }
     }
 
+    // Usando o conceito de Eager Initialization - inicialização quando o sistema/aplicação inicia, ou seja, objeto é criado mesmo que não seja usado
+    public class SingletonEager
+    {
+        private static readonly SingletonEager _instancia = new SingletonEager();
+
+        private SingletonEager() { }
+
+        public static SingletonEager Instancia => _instancia;
+    }
 }
