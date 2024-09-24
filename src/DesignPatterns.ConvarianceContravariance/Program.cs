@@ -1,4 +1,6 @@
-﻿namespace DesignPatterns.ConvarianceContravariance
+﻿using DesignPatterns.Utils;
+
+namespace DesignPatterns.ConvarianceContravariance
 {
     internal class Program
     {
@@ -9,17 +11,11 @@
             // Amplia o Principio de Substituição de Objetos
             // Interfaces genéricas podem produzir (via retorno de métodos) ou consumir (via parâmetros) objetos
 
-            for (; ; )
-            {
-                Console.Write("\x1b[2J\x1b[H");
-
-                Console.WriteLine("Selecione a opção \n 1 - Covariância \n 2 - Contravariância");
-
-                string? relacionamento = Console.ReadLine();
-
-                if (!string.IsNullOrEmpty(relacionamento))
-                {
-                    switch (relacionamento)
+            Helpers.Escolhas(
+                "== Convariância e Contravariânci ==",
+                "Selecione a opção \n 1 - Covariância \n 2 - Contravariância",
+                (opcao) => {
+                    switch (opcao)
                     {
                         case "1":
                             Covariancia(); break;
@@ -28,11 +24,8 @@
                         default:
                             Console.WriteLine("Opção inválida"); break;
                     }
+                });
 
-                    Console.WriteLine("\n\nPressione alguma tecla para continuar");
-                    Console.ReadKey();
-                }
-            }
         }
 
         static void Covariancia()

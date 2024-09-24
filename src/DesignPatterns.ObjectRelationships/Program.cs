@@ -2,6 +2,7 @@
 using DesignPatterns.ObjectRelationships.Associacao;
 using DesignPatterns.ObjectRelationships.Composicao;
 using DesignPatterns.ObjectRelationships.Dependencia;
+using DesignPatterns.Utils;
 
 namespace DesignPatterns.ObjectRelationships
 {
@@ -10,35 +11,25 @@ namespace DesignPatterns.ObjectRelationships
         static void Main(string[] args)
         {
 
-            for (; ; )
-            {
-                Console.Write("\x1b[2J\x1b[H");
-
-                Console.WriteLine("Selecione a opção \n 1 - Dependência \n 2 - Agregação \n 3 - Composição \n 4 - Agregação");
-
-                string? relacionamento = Console.ReadLine();
-
-                if (!string.IsNullOrEmpty(relacionamento))
-                {
-                    switch (relacionamento)
-                    {
-                        case "1":
-                            Dependencia(); break;
-                        case "2":
-                            Associacao(); break;
-                        case "3":
-                            Composicao(); break; // UMA COMPOSIÇÃO É UMA AGREGAÇÃO. POREM, A EXPLICAÇÃO VEIO ANTES DEVIDO A NECESSIDADE DE REFORÇAR O CONCEITO DE "TODO/PARTE"
-                        case "4":
-                            Agregacao(); break;
-                        default:
-                            Console.WriteLine("Opção inválida"); break;
-                    }
-
-                    Console.WriteLine("\n\nPressione alguma tecla para continuar");
-                    Console.ReadKey();
-                }
-            }
-
+            Helpers.Escolhas(
+               "== Relacionamento de Objetos ==",
+               "Selecione a opção \n 1 - Dependência \n 2 - Agregação \n 3 - Composição \n 4 - Agregação",
+               (opcao) => {
+                   switch (opcao)
+                   {
+                       case "1":
+                           Dependencia(); break;
+                       case "2":
+                           Associacao(); break;
+                       case "3":
+                           Composicao(); break; // UMA COMPOSIÇÃO É UMA AGREGAÇÃO. POREM, A EXPLICAÇÃO VEIO ANTES DEVIDO A NECESSIDADE DE REFORÇAR O CONCEITO DE "TODO/PARTE"
+                       case "4":
+                           Agregacao(); break;
+                       default:
+                           Console.WriteLine("Opção inválida"); break;
+                   }
+               });
+           
         }
 
         private static void Dependencia()

@@ -1,6 +1,7 @@
 ﻿using DesignPatterns.DesignPatterns.Creational.Prototype.Exemplo1;
 using DesignPatterns.DesignPatterns.Creational.Prototype.Exemplo2;
 using DesignPatterns.DesignPatterns.Creational.Prototype.Exemplo3;
+using DesignPatterns.Utils;
 
 namespace DesignPatterns.DesignPatterns.Creational.Prototype
 {
@@ -8,19 +9,13 @@ namespace DesignPatterns.DesignPatterns.Creational.Prototype
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("== Prototype ==");
+            Console.WriteLine();
 
-            for (; ; )
-            {
-                Console.Write("\x1b[2J\x1b[H");
-
-                Console.WriteLine("Selecione a opção \n 1 - Estrutura Padrão \n 2 - ICloneable\n 3 - Registro de Protótipos");
-
-                string? relacionamento = Console.ReadLine();
-
-                if (!string.IsNullOrEmpty(relacionamento))
-                {
-                    switch (relacionamento)
+            Helpers.Escolhas(
+                "== Prototype ==",
+                "Selecione a opção \n 1 - Estrutura Padrão \n 2 - ICloneable\n 3 - Registro de Protótipos",
+                (opcao) => {
+                    switch (opcao)
                     {
                         case "1":
                             EstruturaPadrao(); break;
@@ -31,11 +26,8 @@ namespace DesignPatterns.DesignPatterns.Creational.Prototype
                         default:
                             Console.WriteLine("Opção inválida"); break;
                     }
+                });
 
-                    Console.WriteLine("\n\nPressione alguma tecla para continuar");
-                    Console.ReadKey();
-                }
-            }
         }
 
         // Exemplo padrão de utilização do padrão Prototype
