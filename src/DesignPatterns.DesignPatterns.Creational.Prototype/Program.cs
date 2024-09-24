@@ -1,5 +1,6 @@
 ﻿using DesignPatterns.DesignPatterns.Creational.Prototype.Exemplo1;
 using DesignPatterns.DesignPatterns.Creational.Prototype.Exemplo2;
+using DesignPatterns.DesignPatterns.Creational.Prototype.Exemplo3;
 
 namespace DesignPatterns.DesignPatterns.Creational.Prototype
 {
@@ -13,7 +14,7 @@ namespace DesignPatterns.DesignPatterns.Creational.Prototype
             {
                 Console.Write("\x1b[2J\x1b[H");
 
-                Console.WriteLine("Selecione a opção \n 1 - Estrutura Padrão \n 2 - ICloneable");
+                Console.WriteLine("Selecione a opção \n 1 - Estrutura Padrão \n 2 - ICloneable\n 3 - Registro de Protótipos");
 
                 string? relacionamento = Console.ReadLine();
 
@@ -25,6 +26,8 @@ namespace DesignPatterns.DesignPatterns.Creational.Prototype
                             EstruturaPadrao(); break;
                         case "2":
                             UsoDeICloneable(); break;
+                        case "3":
+                            UsoRegistroDePrototipos(); break;
                         default:
                             Console.WriteLine("Opção inválida"); break;
                     }
@@ -35,7 +38,8 @@ namespace DesignPatterns.DesignPatterns.Creational.Prototype
             }
         }
 
-        public static void EstruturaPadrao()
+        // Exemplo padrão de utilização do padrão Prototype
+        private static void EstruturaPadrao()
         {
            
             Console.WriteLine("\nExemplo 1 - Estrutura padrão");
@@ -50,7 +54,9 @@ namespace DesignPatterns.DesignPatterns.Creational.Prototype
 
             pessoas.ToList().ForEach(p => p.Apresentar());
         }
-        public static void UsoDeICloneable()
+
+        // Utilização de interface nativa ICloneable 
+        private static void UsoDeICloneable()
         {
             Console.WriteLine("\nExemplo 2 - Estrutura padrão");
 
@@ -58,7 +64,51 @@ namespace DesignPatterns.DesignPatterns.Creational.Prototype
             banana.Bananaaaaas();
         }
 
+        // Utilização de registro de prototipos
+        // Permite o gerenciamento (adição/remoção/resgate) de uma lista de prototipos
+        // Podem ser salvos em memoria ou resgatado pelo banco de dados
+        private static void UsoRegistroDePrototipos()
+        {
+            Console.WriteLine("\nExemplo 3 - Registro de Prototipos");
 
+
+            RegistroEstilos registro = new RegistroEstilos();
+
+            Estilo estilo = new Estilo(Guid.NewGuid(), "Careca", "Rosa", "Masculino", "1.80");
+
+            registro.Registrar(estilo);
+
+            Personagem majinBoo = new Personagem(
+                Guid.NewGuid(),
+                "Majin Boo",
+                estilo
+            );
+
+            Estilo estilo2 = (Estilo) registro.Resgatar(estilo.Id);
+
+            estilo2.Altura = "1,98";
+
+            Personagem superBoo = new Personagem(
+                 Guid.NewGuid(),
+                 "Super Boo",
+                 estilo2
+            );
+
+            Estilo estilo3 = (Estilo)registro.Resgatar(estilo.Id);
+
+            estilo3.Altura = "1,50";
+
+            Personagem kidBoo = new Personagem(
+                 Guid.NewGuid(),
+                 "Kid Boo",
+                 estilo3
+            );
+
+
+            majinBoo.Apresentar();
+            superBoo.Apresentar();
+            kidBoo.Apresentar();
+        }
     }
 
 

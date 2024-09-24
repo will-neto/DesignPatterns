@@ -28,5 +28,6 @@ namespace DesignPatterns.DesignPatterns.Creational.Prototype.Exemplo1
         public abstract Pessoa Clone();
 
         public abstract void Apresentar();
+
     }
 }
