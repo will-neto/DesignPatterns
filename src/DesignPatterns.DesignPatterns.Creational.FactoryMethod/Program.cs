@@ -15,10 +15,6 @@ namespace DesignPatterns.DesignPatterns.Creational.FactoryMethod
                     {
                         case "1":
                             FactoryMethodWithAbstractClass(); break;
-                        case "2":
-                            FactoryMethodWithInterface(); break;
-                        case "3":
-                            FactoryMethodWithNormalClass(); break;
                         default:
                             Console.WriteLine("Opção inválida"); break;
                     }
@@ -59,14 +55,5 @@ namespace DesignPatterns.DesignPatterns.Creational.FactoryMethod
             // implementados no método da fábrica)
         }
 
-        private static void FactoryMethodWithInterface()
-        {
-
-        }
-
-        private static void FactoryMethodWithNormalClass()
-        {
-
-        }
     }
 }
