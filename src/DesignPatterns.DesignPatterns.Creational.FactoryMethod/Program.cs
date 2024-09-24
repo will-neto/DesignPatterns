@@ -49,6 +49,14 @@ namespace DesignPatterns.DesignPatterns.Creational.FactoryMethod
             // Isso flexibiliza, diminui o acoplamento e mantém nosso código com uma melhor extensibilidade de novas features
             Console.WriteLine($"[{empregado.GetType().Name} - {empregado.Tipo.ToString()}]");
             empregado.FazerTrabalho();
+
+
+            // Um ponto válido é entender que apesar de encapsularmos a criação de um objeto dentro de uma classe+método apartado
+            // ainda existe a necessidade de definir qual Factory Method utilizar... 
+            // Porém, em minha consideração pessoal, vejo que o objetivo de centralizar o processo de criação de um objeto
+            // seja o principal motivo da utilização do Factory Method. O que a longo prazo pode nos ajudar, já que não precisamos
+            // atribuir a criação via "new", ainda mais em objetos que possam ter algum conjunto de regras (que neste caso, estariam
+            // implementados no método da fábrica)
         }
 
         private static void FactoryMethodWithInterface()
