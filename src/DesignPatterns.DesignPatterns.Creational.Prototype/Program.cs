@@ -9,8 +9,6 @@ namespace DesignPatterns.DesignPatterns.Creational.Prototype
     {
         static void Main(string[] args)
         {
-            Console.WriteLine();
-
             Helpers.Escolhas(
                 "== Prototype ==",
                 "Selecione a opção \n 1 - Estrutura Padrão \n 2 - ICloneable\n 3 - Registro de Protótipos",

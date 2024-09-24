@@ -6,8 +6,6 @@ namespace DesignPatterns.DesignPatterns.Creational.Singleton
     {
         static void Main(string[] args)
         {
-            Console.WriteLine();
-
             Helpers.Escolhas(
                 "== Singleton ==",
                 "Selecione a opção \n 1 - Singleton \n 2 - Singleton com carregamento Lazy (Tardio)\n 3 - Singletion com carregamento Eager (antecipado)",
