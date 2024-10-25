@@ -28,96 +28,81 @@ namespace DesignPatterns.ConvarianceContravariance
 
         }
 
+        #region . . . Covariante . . .
+
         static void Covariancia()
         {
-            Console.WriteLine("Principio de substituição de objeto com tipos regulares\n");
-
-            
-            // No conceito de herança a atribuição de uma classe derivada a uma referência de classe base é válida por padrão
-            // A referência é do tipo "Base", mas a instância é do tipo "Derivada"
- 
-            // Lembrando que referência é o tipo da variável que aponta para um objeto na memória. 
-            // O tipo da variável determina quais operações e métodos de instância são acessíveis.
-            // Já a instância é o tipo do objeto real, sendo a representação concreta do tipo em memória.
-            
-
-            // Válido
-            Base classeBase = new Base();
-            // Válido
-            Base classeDerivada = new Derivada();
-
-            classeBase.Mensagem();
-            classeDerivada.Mensagem();
-
-            // Não é possível fazer a instância de um tipo mais genérico em uma variável de tipo mais específico
-            // Inválido
-            // Derivada classeDerivadaInvalida = new Base();
-
             Console.WriteLine("\nPrincipio de substituição de objeto com Covariância\n");
 
-            // Covariância é um termo da física que se diz sobre causa-efeito
-            // Caso a diminuição da causa diminui o efeito, ou seja, vão para a mesma direção, é usado o termo covariância
+            /*
+                O que é covariância no mundo real?
 
-            // A covariância na programação é usada de forma efetiva com o principio de substituição de objeto + classes genéricas
-            // A covariância só pode ser usada com métodos/propriedades que retornam tipos genéricos. Não pode ser usada com tipos genéricos em parâmetros de entrada
+                - Covariância é um termo da física que se diz sobre causa-efeito
+                    Caso a diminuição da causa diminua seu efeito ou se o aumento da causa gera um aumento no seu efeito, ou seja,
+                    vão para a mesma direção, é usado o termo covariância
 
-            IProdutorCovariante<Base> produtorBase = new ProdutorCovariante<Base>();
+                O que é covariância no CSharp?
 
-            Base a = produtorBase.Produzir();
-            // Erro de compilação, pois a classe genérica não permite a atribuição de uma instância que retorna a Classe Base a uma que retorna Derivada
-            // Derivada b = produtorBase.Produzir();
+                - Uma extensão do uso de polimorfismo com tipos genéricos
+                - A covariância permite que um tipo filho (mais derivado) seja usado onde um tipo base (mais genérico) é esperado.
+                - A covariância só pode ser usada com interfaces ou delegates que retornam tipos genéricos.
+                - Sua habilitação se faz através do operador "out" junto com o parâmetro de tipo (que define um tipo genérico)
+                - Após habilitação da covariância, o tipo só pode ser usado em retornos de métodos ou propriedades, nunca como parâmetro no métodos
+            
+                Raciocine!
 
+                - "Mas a herança/polimorfismo já não é um tipo de covariancia? Já que podemos passar um tipo mais derivado no lugar
+                  de um tipo mais genérico? Por exemplo:
 
-            IProdutorCovariante<Derivada> produtorDerivada = new ProdutorCovariante<Derivada>();
-            Base c = produtorDerivada.Produzir();
-            Derivada d = produtorDerivada.Produzir();
+                        public class Base { ... }
+                        public class Derivada : Base { ... }
 
-            a.Mensagem();
-            c.Mensagem();
-            d.Mensagem();
+                    
+                        ... 
+                        public void MetodoExemplo(Base base) {
+                            ... bloco de código
+                        }
+                        ...
 
-            // Permite a atribuição a variável de classe genérica Base com o tipo mais específico, classe Derivada
-            // Isso se faz possível através da covariância
-            produtorBase = new ProdutorCovariante<Derivada>();
-            Base e = produtorBase.Produzir();
+                        MetodoExemplo(new Derivada());
+            
+                    Dado exemplo acima, tudo funcionaria corretamente, já que a classe Derivada herda da Base.
 
-            e.Mensagem();
+                    >> PORÉM, PARA TIPOS GENÉRICOS, ESSE TIPO DE COMPORTAMENTO NÃO É POSSÍVEL POR PADRÃO
+                    >> POR ISSO A COVARIÂNCIA EM GENÉRICOS É UMA EXTENSÃO E DEVE SER HABILITADA
 
-            // De forma resumida, o comportamento de atribuição de instância de uma subclasse a uma referência de superclasse é válida
-            // Pórém, em classes genéricas não. O que se faz necessário a utilização de covariância
-            // Desta forma, a covariância permite a substituição de um tipo genérico (Base) por um tipo mais específico (Derivada) na instância
+             */
 
+            // O comportamento abaixo dispara um erro quando tentamos atribuir o listaString para listaObject,
+            // apesar do tipo "string" ser um tipo de "object"
 
-            // A COVARIÂNCIA É PERMITIDA EM RETORNOS DE MÉTODOS DEVIDO SABERMOS QUAL TIPO ESPERAR
-            // POR ISSO PODEMOS PASSAR UM TIPO MAIS ESPECÍFICO EM UM MÉTODO QUE RETORNA UM TIPO MAIS GERAL
-            // TENDO EM VISTA QUE O TIPO MAIS ESPECÍFICO É UMA SUBCLASSE DESTE TIPO MAIS GERAL
-            // DESTA FORMA, SABEMOS O QUE AGUARDAR, SEMELHANTE AO USO DE TIPOS REGULARES => Base base = new Fruta();
+            List<string> listaString = new List<string>();
+            // List<object> listaObject = listaString;
 
-            // NAO PODEMOS USAR A COVARIANCIA EM PARAMETROS, POIS PERMITE QUE SEJA PASSADO UM TIPO ESPECIFICO NO LUGAR DE UM TIPO GERAL
-            // DESTA FORMA, NAO SABEMOS O QUE PODE ENTRAR NO PARAMETRO, A OPERAÇÃO DO TIPO ESPECIFICO PODE FAZER CHAMADAS A PROPRIEDADES OU MÉTODOS ESPECIFICOS DA SUBCLASSE
-            // O QUE OCASIONARIA UM ERRO, TENDO EM VISTA QUE A REFERENCIA QUE UTILIZA A CLASSE DA SUPERCLASSE NAO TERIA VISIBILIDADE
+            // Porém, para o exemplo abaixo é possível, tendo em vista que IEnumerable é uma interface que possui a covariância habilitada
+            IEnumerable<string> strings = new List<string>();
+            IEnumerable<object> objects = strings; // Covariância permite esta atribuição
 
 
             Console.WriteLine("\n\nRESUMO FINAL");
             // RESUMO FINAL
 
             // Correto: Possível porque os tipos são iguais | Base : Base
-            IProdutorCovariante<Base> p = new ProdutorCovariante<Base>();
-            p.Produzir();
+            IProdutorCovariante<Base> exemplo1 = new ProdutorCovariante<Base>();
+            exemplo1.Produzir();
 
             // Correto: Possível porque os tipos são iguais | Derivada : Derivada
-            IProdutorCovariante<Derivada> q = new ProdutorCovariante<Derivada>();
-            p.Produzir();
+            IProdutorCovariante<Derivada> exemplo2 = new ProdutorCovariante<Derivada>();
+            exemplo2.Produzir();
 
             // Correto: Permitido devido à covariância.
-            // A variável "r" tem conhecimento apenas dos membros de Base, mesmo que a instância seja de Derivada | Base : Derivada
-            // 
-            IProdutorCovariante<Base> r = new ProdutorCovariante<Derivada>();
-            p.Produzir();
+            // A variável "exemplo3" tem conhecimento apenas dos membros de Base, mesmo que a instância seja de Derivada | Base : Derivada
+            IProdutorCovariante<Base> exemplo3 = new ProdutorCovariante<Derivada>();
+            exemplo3.Produzir();
 
             // Inválido: A covariância não permite que um tipo mais genérico (Base) substitua um tipo mais específico (Derivada),
-            // Pois "s" espera um Derivada, que pode ter membros que não existem em Base | Base : Derivada
-            // IProdutorCovariante<Derivada> s = new ProdutorCovariante<Base>();  
+            // Pois "exemplo4" espera um Derivada, que pode ter membros que não existem em Base | Base : Derivada
+            // IProdutorCovariante<Derivada> exemplo4 = new ProdutorCovariante<Base>();  
 
             // Apesar dos erros de compilação, a evidência se traz dentro dos métodos que retornam o tipo genérico
         }
@@ -125,6 +110,16 @@ namespace DesignPatterns.ConvarianceContravariance
         interface IProdutorCovariante<out T> // Através de "out" indicamos que o tipo "T" é covariante
         {
             T Produzir(); // A covariância é valida apenas em retornos de métodos ou propriedades
+
+            /*
+                Se T fosse usado como parâmetro de entrada em um método (void Consumir(T item)), poderíamos tentar passar um tipo base 
+                (como object) para um parâmetro que espera um tipo derivado (como string), causando erros se o método Consumir() dependesse
+                de alguma propriedade ou método restrito ao tipo "string".
+                Ao usar out, o compilador garante que T só seja usado como saída, o que evita conflitos e mantém a segurança.       
+             */
+            // ERRO COMPILADOR
+            // Consumir(T param);
+
         }
 
         class ProdutorCovariante<T> : IProdutorCovariante<T> where T : new()
@@ -136,18 +131,9 @@ namespace DesignPatterns.ConvarianceContravariance
             }
         }
 
-        interface IConsumidorContravariante<in T> // Através de "in" indicamos que o tipo "T" é contravariante
-        {
-            void Consumir(T t);
-        }
+        #endregion
 
-        class ConsumidorContravariante<T> : IConsumidorContravariante<T> where T : new()
-        {
-            public void Consumir(T t)
-            {
-                Console.WriteLine("Chamada do método consumir via: " + t.GetType().Name);
-            }
-        }
+
 
         static void Contravariancia()
         {
@@ -183,6 +169,18 @@ namespace DesignPatterns.ConvarianceContravariance
         }
 
 
+        interface IConsumidorContravariante<in T> // Através de "in" indicamos que o tipo "T" é contravariante
+        {
+            void Consumir(T t);
+        }
+
+        class ConsumidorContravariante<T> : IConsumidorContravariante<T> where T : new()
+        {
+            public void Consumir(T t)
+            {
+                Console.WriteLine("Chamada do método consumir via: " + t.GetType().Name);
+            }
+        }
     }
 
 }
