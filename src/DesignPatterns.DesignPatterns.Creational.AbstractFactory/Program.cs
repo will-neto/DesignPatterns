@@ -8,7 +8,7 @@ namespace DesignPatterns.DesignPatterns.Creational.AbstractFactory
         static void Main(string[] args)
         {
             Helpers.Escolhas(
-                "== Prototype ==",
+                "== Abstract Factory ==",
                 "Selecione a opção \n 1 - Abstract Factory",
                 (opcao) => {
                     switch (opcao)
