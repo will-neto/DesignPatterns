@@ -1,4 +1,5 @@
 ﻿using DesignPatterns.DesignPatterns.Creational.Builder.Exemplo1;
+using DesignPatterns.DesignPatterns.Creational.Builder.Exemplo2;
 using DesignPatterns.Utils;
 
 namespace DesignPatterns.DesignPatterns.Creational.Builder
@@ -52,6 +53,21 @@ namespace DesignPatterns.DesignPatterns.Creational.Builder
 
         private static void BuilderComDiretor()
         {
+            CasaDirector diretor = new CasaDirector(new CasaPedraBuilder());
+
+            diretor.ConstruirCasaFamilia();     
+            Casa casa = diretor.Obter();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(casa);
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            diretor.MudarConstrutor(new CasaMadeiraBuilder());
+
+            diretor.ConstruirCasaSolteiro();
+            casa = diretor.Obter();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(casa);
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
 
     }
