@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns.DesignPatterns.Structural.Composite.Exemplo1
 {
+    // (3) Objeto complexo / Composição
+    // Possui a lista de "Folhas" ou de outras Composições
     internal class Pais : IArrecadacao
     {
         private IList<IArrecadacao> Arrecadacoes { get; set; }

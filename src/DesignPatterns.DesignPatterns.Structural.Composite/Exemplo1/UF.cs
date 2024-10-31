@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns.DesignPatterns.Structural.Composite.Exemplo1
 {
+    // (2) Folha
+    // Objeto usado pela composição e que possui operação em comum e que pode ser tratada de forma semelhante na mesma estrutura
     internal class UF : IArrecadacao
     {
         public decimal Total { get => ArrecadarImpostos(); }
