@@ -37,7 +37,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatterns.DesignPatter
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatterns.DesignPatterns.Structural.Composite", "src\DesignPatterns.DesignPatterns.Structural.Composite\DesignPatterns.DesignPatterns.Structural.Composite.csproj", "{9FA46068-D8A5-4540-A26D-400B2248CA81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.DesignPatterns.Structural.Proxy", "src\DesignPatterns.DesignPatterns.Structural.Proxy\DesignPatterns.DesignPatterns.Structural.Proxy.csproj", "{724C3B92-CBA3-4832-838D-02931877BF7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatterns.DesignPatterns.Structural.Proxy", "src\DesignPatterns.DesignPatterns.Structural.Proxy\DesignPatterns.DesignPatterns.Structural.Proxy.csproj", "{724C3B92-CBA3-4832-838D-02931877BF7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.DesignPatterns.Structural.Adapter", "src\DesignPatterns.DesignPatterns.Structural.Adapter\DesignPatterns.DesignPatterns.Structural.Adapter.csproj", "{1314189E-F19E-439C-ABDA-3529BED06AFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +91,10 @@ Global
 		{724C3B92-CBA3-4832-838D-02931877BF7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{724C3B92-CBA3-4832-838D-02931877BF7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{724C3B92-CBA3-4832-838D-02931877BF7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1314189E-F19E-439C-ABDA-3529BED06AFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1314189E-F19E-439C-ABDA-3529BED06AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1314189E-F19E-439C-ABDA-3529BED06AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1314189E-F19E-439C-ABDA-3529BED06AFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +114,7 @@ Global
 		{874ED49E-9EEF-44E9-9F73-2C897F5C0608} = {6F480FD9-8E90-4865-821A-84128C23EBC9}
 		{9FA46068-D8A5-4540-A26D-400B2248CA81} = {6F480FD9-8E90-4865-821A-84128C23EBC9}
 		{724C3B92-CBA3-4832-838D-02931877BF7A} = {6F480FD9-8E90-4865-821A-84128C23EBC9}
+		{1314189E-F19E-439C-ABDA-3529BED06AFD} = {6F480FD9-8E90-4865-821A-84128C23EBC9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6C9CD54-12DF-4685-90E3-FC46506C5C9E}
